@@ -34,7 +34,7 @@ def multiple_member_entries():
 
 # (3)
 def members_by_payer():
-    cur.execute('SELECT payer, COUNT(*) FROM std_member_info GROUP BY payer;')
+    cur.execute('SELECT payer, COUNT(DISTINCT member_id) FROM std_member_info GROUP BY payer;')
 
     print("[Quantity by Payer]\n")
     for row in cur.fetchall():
